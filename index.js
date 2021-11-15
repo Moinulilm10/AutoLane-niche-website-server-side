@@ -51,7 +51,7 @@ async function run() {
         // add service
          app.post("/services", async (req, res) => {
             const service = req.body
-            console.log('hit the post', service)
+            // console.log('hit the post', service)
             const result = await serviceCollection.insertOne(service);
             console.log(result);
             res.json(result)
@@ -71,7 +71,7 @@ async function run() {
         // POST order  API
         app.post('/placeOrder', async (req, res) => {
             const orderDetails = req.body;
-            console.log('hit the post')
+            // console.log('hit the post')
             const result = await myOrderCollection.insertOne(orderDetails);
             res.json(result);
         })
@@ -126,7 +126,7 @@ async function run() {
           app.post('/users', async (req, res) => {
             const user = req.body;
             const result = await usersCollection.insertOne(user);
-            console.log(result);
+            // console.log(result);
             res.json(result);
         });
 
@@ -143,7 +143,7 @@ async function run() {
 
           app.put('/users/admin', async (req, res) =>{
               const user = req.body;
-              console.log('put', user)
+            //   console.log('put', user)
               const filter = { email: user.email };
               const updateDoc = { $set: { role: 'admin' } };
               const result = await usersCollection.updateOne(filter, updateDoc);
@@ -166,9 +166,9 @@ async function run() {
         // add review
          app.post("/reviews", async (req, res) => {
             const service = req.body
-            console.log('hit the post', service)
+            // console.log('hit the post', service)
             const result = await reviewsCollection.insertOne(service);
-            console.log(result);
+            // console.log(result);
             res.json(result)
         });
 
